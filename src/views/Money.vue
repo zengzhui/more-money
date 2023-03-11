@@ -1,9 +1,8 @@
 <template>
-    <div class="nav-wrapper">
-        <div class="content">
-            Money.vue
-        </div>
-        <Nav/>
+    <div>
+        <Layout>
+            <p>Money.vue</p>
+        </Layout>
     </div>
 </template>
 
