@@ -1,6 +1,5 @@
 <template>
   <div>
-    {{value}}
     <label class="notes">
       <span class="name">备注</span>
       <input type="text" 
