@@ -5,6 +5,8 @@ import Labels from '@/views/Labels.vue'
 import Statistics from '@/views/Statistics.vue'
 import Nofound from '@/views/Nofound.vue'
 
+
+
 Vue.use(VueRouter)
 
 const routes = [
