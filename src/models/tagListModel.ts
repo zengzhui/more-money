@@ -1,5 +1,5 @@
 const localStorageKeyName = 'tagList'
-import createId from '@/components/lib/createId';
+import createId from '@/lib/createId';
 type Tag = {
     id: string
     name: string
