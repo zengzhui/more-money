@@ -7,45 +7,48 @@
       <li v-for="tag in tagList" :key="tag.id"
           :class="{selected: selectedTags.indexOf(tag)>=0}"
           @click="toggle(tag)">
-          {{tag.name}}
+        {{ tag.name }}
       </li>
     </ul>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import {Component, Prop} from 'vue-property-decorator';
+import Vue from 'vue';
+import {Component} from 'vue-property-decorator';
 
 
 @Component({
   computed: {
     tagList() {
-      // TODO
-      // return this.$store.fetchTags()
-      return []
+      return this.$store.state.tagList;
     }
   }
 })
 export default class Tags extends Vue {
-  
-  selectedTags: string[] = []
+  /* eslint-disable */
+  selectedTags: string[] = [];
+
+  created() {
+    this.$store.commit('fetchTags');
+  }
+
   toggle(tag: string) {
-    const index = this.selectedTags.indexOf(tag)
-    if(index >= 0){
-      this.selectedTags.splice(index, 1)
-    }else {
-      this.selectedTags.push(tag)
+    const index = this.selectedTags.indexOf(tag);
+    if (index >= 0) {
+      this.selectedTags.splice(index, 1);
+    } else {
+      this.selectedTags.push(tag);
     }
-    this.$emit('update:value', this.selectedTags)
+    this.$emit('update:value', this.selectedTags);
   }
+
   create() {
-    const name = window.prompt('请输入标签名')
-    if(!name){ return window.prompt('标签名不能为空') }
-    // TODO
-    // store.createTag(name)
+    const name = window.prompt('请输入标签名');
+    if (!name) { return window.prompt('标签名不能为空'); }
+    this.$store.commit('createTag', name);
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -57,9 +60,11 @@ export default class Tags extends Vue {
   flex-direction: column-reverse;
   font-size: 14px;
   padding: 16px;
+
   > .current {
     display: flex;
     flex-wrap: wrap;
+
     > li {
       $bg: #d9d9d9;
       background: $bg;
@@ -70,14 +75,17 @@ export default class Tags extends Vue {
       padding: 0 16px;
       margin-right: 12px;
       margin-top: 4px;
+
       &.selected {
         background: darken($bg, 50%);
         color: white;
       }
     }
   }
+
   > .new {
     padding-top: 16px;
+
     button {
       background: transparent;
       border: none;
