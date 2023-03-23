@@ -2,11 +2,14 @@
   <div>
     <Layout>
       <div class="tags">
-        <router-link class="tag"
-                     v-for="tag in tags" :key="tag.id"
-                     :to="`/labels/edit/${tag.id}`">
+        <router-link
+          class="tag"
+          v-for="tag in tags"
+          :key="tag.id"
+          :to="`/labels/edit/${tag.id}`"
+        >
           <span>{{ tag.name }}</span>
-          <Icon name="right"/>
+          <Icon name="right" />
         </router-link>
       </div>
       <div class="createTag-wrapper">
@@ -17,23 +20,23 @@
 </template>
 
 <script lang="ts">
-import {Component} from 'vue-property-decorator';
-import Button from '@/components/Button.vue';
-import TagHelper from '@/mixins/TagHelper';
-import {mixins} from 'vue-class-component';
+import { Component } from "vue-property-decorator";
+import Button from "@/components/Button.vue";
+import TagHelper from "@/mixins/TagHelper";
+import { mixins } from "vue-class-component";
 
 @Component({
-  components: {Button},
+  components: { Button },
   computed: {
     tags() {
       return this.$store.state.tagList;
-    }
-  }
+    },
+  },
 })
 export default class Labels extends mixins(TagHelper) {
   /* eslint-disable*/
   beforeCreate() {
-    this.$store.commit('fetchTags')
+    this.$store.commit("fetchTags");
   }
 }
 </script>
