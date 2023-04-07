@@ -59,7 +59,7 @@ import {Component, Prop} from 'vue-property-decorator';
       this.$emit('submit', number)
       this.output = '0'
     }
-  };
+  }
 </script>
 
 <style lang="scss" scoped>

@@ -5,6 +5,7 @@
 </template>
 
 <script lang="ts">
+/* eslint-disable */
 let importAll = (requestContext: __WebpackModuleApi.RequireContext) =>
   requestContext.keys().forEach(requestContext);
 try {

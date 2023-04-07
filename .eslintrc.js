@@ -1,5 +1,8 @@
 module.exports = {
- "globals": { "RecordItem": true },
+  'globals': {
+    'RecordItem': true,
+    'RootState': true
+  },
   root: true,
   env: {
     node: true
@@ -16,6 +19,7 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     '@typescript-eslint/no-var-requires': 0,
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
   },
   overrides: [
     {
@@ -28,4 +32,4 @@ module.exports = {
       }
     }
   ]
-}
+};

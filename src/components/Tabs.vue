@@ -34,7 +34,7 @@ export default class Tabs extends Vue {
       [this.classPrefix + "-tabs-item"]: this.classPrefix,
       selected: item.value === this.value
     };
-  };
+  }
 
   select(item: DataSourceItem) {
     this.$emit("update:value", item.value);

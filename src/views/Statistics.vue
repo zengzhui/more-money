@@ -33,6 +33,7 @@ import clone from "@/lib/clone";
   components: { Tabs },
 })
 export default class Statistics extends Vue {
+  /*global Tag:true*/
   tagString(tags: Tag[]) {
     return tags.length === 0 ? "无" : tags.map(t => t.name).join("，");
   }
@@ -96,6 +97,7 @@ export default class Statistics extends Vue {
     return result;
   }
 
+  /* eslint-disable */
   beforeCreate() {
     this.$store.commit("fetchRecords");
   }
