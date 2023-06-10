@@ -30,7 +30,7 @@ import Button from '@/components/Button.vue'
 })
 export default class EditLabel extends Vue{
     get currentTag() {
-        return this.$store.state.currentTag
+        return (this.$store.state as RootState).currentTag
     }
 
     created() {
